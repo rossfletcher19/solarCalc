@@ -1,8 +1,8 @@
 # _Solar Calculator_
 
-#### _An application that determines a user’s age based on a planet’s solar years, 12/7/17_
+#### _An application that determines a user’s age based on a planet’s solar years, 2/9/18_
 
-#### By _**Ross Fletcher & James Donlan**_
+#### By _**Ross Fletcher**_
 
 ## Description
 
