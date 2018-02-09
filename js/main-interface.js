@@ -6,8 +6,8 @@ $(document).ready(function() {
     event.preventDefault();
     debugger;
     let age = $('#userAge').val();
-    let userAge = new User(age);
-    let userAgeInSecs = userAge.ageInSeconds();
+    let userInstance = new User(age);
+    let userAge = userInstance.age;
     $("#output").append(userAgeInSecs);
 
     $('#ageCalcForm').empty();

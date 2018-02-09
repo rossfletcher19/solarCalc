@@ -1,5 +1,5 @@
 {
-  "name": "solarCalculator",
+  "name": "solarcalculator",
   "description": "An application that determines a user’s age based on a planet’s solar years",
   "main": "index.js",
   "authors": [

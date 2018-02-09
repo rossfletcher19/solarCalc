@@ -41,8 +41,8 @@ $(document).ready(function () {
     event.preventDefault();
     debugger;
     var age = $('#userAge').val();
-    var userAge = new _main.User(age);
-    var userAgeInSecs = userAge.ageInSeconds();
+    var userInstance = new _main.User(age);
+    var userAge = userInstance.age;
     $("#output").append(userAgeInSecs);
 
     $('#ageCalcForm').empty();
