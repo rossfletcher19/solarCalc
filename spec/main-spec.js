@@ -1,19 +1,19 @@
 import { User } from './../js/main.js';
 
-var userAge;
+var userInstance;
 
 beforeEach(function() {
-  userAge = new User(age);
+  userInstance = new User();
 })
 
 describe('User', function() {
 
   it('will test to see if a users age is converted into seconds', function() {
     let output = "";
-    output = userAge.ageInSeconds
+    output = userInstance.ageInSeconds(34);
 
     // let output = userAge.ageInSeconds(34);
-    // expect(output).toEqual(1,072,936,368);
+    expect(output).toEqual(1,072,936,368);
 
   });
 

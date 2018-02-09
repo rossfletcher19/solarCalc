@@ -4,45 +4,60 @@
 
 #### By _**Ross Fletcher**_
 
-## Description
+## Description _A solar year lasts 365 days on planet Earth. However, the length of a solar year varies from planet to planet. For instance, a solar year on Mercury lasts 88 days. This application will determine a user’s age based on a planet’s solar years._
 
 ## Planning
 
 1. Configuration/dependencies
-  * This should include ALL dependencies.
-  * It should also include WHERE they are defined and used in the project
-  * It could include a short description of what each does for you
+  * NodeJS with full gulp and bower tasks, with Karma testing.
+  * Dependencies are declared in package.json and bower.json. Run npm install and bower install.
 
 2. Specs
-  * Spec 1: Description, input, output.
-  * Spec 2: Description, input, output.
+|  Behavior | Input  | Output  |
+|---|---|---|
+|  Take a person’s age in years and convert it into seconds. |  34 | 1,072,936,368  |
+|  Take two dates and determine the difference, in seconds, between the two. |   |   |
+|  Return the age of a human in Mercury years. |   |   |
+|  Return the age of a human in Venus years. |   |   |
+|  Return the age of a human in Mars years. |   |   |
+|  Return the age of a human in Jupiter years. |   |   |
+|  Determine how many years a user has left to live on each planet… |   |   |
+|  If a user has already surpassed the average life expectancy, application should account for (and test) this possible outcome as well. |   |   |
+|   |   |   |
 
 3. Integration
-  * Initial routes or index pages with all dependencies in Controller/index.html head
-  * Template/html page for ...
-  * Template/html page for ...
-  * Template/html page for ... (one for each route/integrated user story)
-  * Display...
-  * Integrate feature that...
+  * Initial boilerplate project folder with all dependencies
+  * script files working together with import and export
+  * Testing functions for with Karma before front end integration.
+  * Integrate features and functions into front end...
 
 4. UX/UI
-  * Include and modify bootstrap/materialize/Sass etc.
+  * Include and modify bootstrap.
   * Develop custom style
 
 5. Polish
-  * Refactor minor portion of...
-  * Delete unused...
+  * Refactor
+  * Delete unused
   * Make README awesome
 
 ## Setup/Installation Requirements
 
-
-
+* Clone this repo. <br />
+`$ git clone https://github.com/rossfletcher19/solarCalc.git`
+* cd into the cloned repo and run the following command from your terminal. <br/>
+`$ npm install && bower install`
+* Serve a production version of the web app by running this gulp task <br/>
+`gulp serve --prod`
 
 
 ## Technologies Used
 
-
+* _HTML_
+* _CSS_
+* _JavaScript_
+* _jQuery-3.2.1_
+* _npm, gulp, bower_
+* _Karma testing_
 
 ### License
 
