@@ -23,6 +23,7 @@ var User = exports.User = function () {
       var YR_IN_SECS = 31556952;
       var ageInSec = this.age * YR_IN_SECS;
       console.log(ageInSec);
+      return ageInSec;
     }
   }]);
 
@@ -42,8 +43,8 @@ $(document).ready(function () {
     debugger;
     var age = $('#userAge').val();
     var userInstance = new _main.User(age);
-    var userAge = userInstance.age;
-    $("#output").append(userAgeInSecs);
+    var ageInSec = userInstance.ageInSeconds();
+    $("#output").append(ageInSec);
 
     $('#ageCalcForm').empty();
     // $('#nameOutput').hide();
