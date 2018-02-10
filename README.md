@@ -8,11 +8,11 @@
 
 ## Planning
 
-1. Configuration/dependencies
+## Configuration/dependencies
   * NodeJS with full gulp and bower tasks, with Karma testing.
   * Dependencies are declared in package.json and bower.json. Run npm install and bower install.
 
-2. Specs
+## Specs
 |  Behavior | Input  | Output  |
 |---|---|---|
 |  Take a person’s age in years and convert it into seconds. |  34 | 1,072,936,368  |
@@ -25,17 +25,17 @@
 |  If a user has already surpassed the average life expectancy, application should account for (and test) this possible outcome as well. |   |   |
 |   |   |   |
 
-3. Integration
+## Integration
   * Initial boilerplate project folder with all dependencies
   * script files working together with import and export
   * Testing functions for with Karma before front end integration.
   * Integrate features and functions into front end...
 
-4. UX/UI
+## UX/UI
   * Include and modify bootstrap.
   * Develop custom style
 
-5. Polish
+## Polish
   * Refactor
   * Delete unused
   * Make README awesome
