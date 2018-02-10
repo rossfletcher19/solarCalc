@@ -12,10 +12,17 @@ export class User {
     }
     // debugger;
     accurateAge(birthdate) {
-    let ageDifsMs = Date.now() - Date.getTime(birthdate);
-    let ageDate = new Date(ageDifsMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  
+    let sinceEpochToBdayInMilli = Date.parse(this.birthdate);
+    let d = new Date();
+    let t_millis = d.getTime();
+    let ageInMilli = t_millis - sinceEpochToBdayInMilli;
+    let ageInYears = ageInMilli/31536000000;
+
+
+    // console.log(ageInMilli);
+    return ageInYears.toFixed(2);
+
+
 
     }
 
