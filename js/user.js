@@ -12,10 +12,10 @@ export class User {
     }
     // debugger;
     accurateAge(birthdate) {
-    let now = Date.now();
-    console.log(now);
-
-
+    let ageDifsMs = Date.now() - Date.getTime(birthdate);
+    let ageDate = new Date(ageDifsMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  
 
     }
 

@@ -18,7 +18,9 @@ describe('User', function() {
   });
 
   it('will take a users birthdate and return them an accurate age', function () {
-    // accurateAge
+    // let ageFromBday = instanceOfUser.accurateAge();
+    // console.log(ageFromBday);
+
   });
 
 
