@@ -1,4 +1,4 @@
-import { Birthdate } from './../js/birthdate.js';
+
 
 $(document).ready(function() {
   $("#bdayForm").submit(function(event){
@@ -16,7 +16,20 @@ $(document).ready(function() {
   });
 });
 
-import { User } from './../js/main.js';
+$(document).ready(function () {
+  $('#signup').submit(function (event) {
+    event.preventDefault();
+    var name = $('#name').val();
+    $('#signup').hide();
+    $('#nameOutput').prepend('<p>Thank you, ' + name + ' , now enter your age to see it in seconds!</p>');
+  });
+});
+
+$(document).ready(function(){
+  $('#time').text(moment());
+});
+
+import { User } from './../js/user.js';
 
 
 $(document).ready(function() {
@@ -35,17 +48,4 @@ $(document).ready(function() {
 
 
   });
-});
-
-$(document).ready(function () {
-  $('#signup').submit(function (event) {
-    event.preventDefault();
-    var name = $('#name').val();
-    $('#signup').hide();
-    $('#nameOutput').prepend('<p>Thank you, ' + name + ' , now enter your age to see it in seconds!</p>');
-  });
-});
-
-$(document).ready(function(){
-  $('#time').text(moment());
 });

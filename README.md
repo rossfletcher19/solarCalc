@@ -16,7 +16,7 @@
 |  Behavior | Input  | Output  |
 |---|---|---|
 |  Take a person’s age in years and convert it into seconds. |  34 | 1,072,936,368  |
-|  Take two dates and determine the difference, in seconds, between the two. |   |   |
+|  Take two dates and determine the difference, in seconds, between the two. | Jan 12, 2018 & Jan 20, 1986 |   |
 |  Return the age of a human in Mercury years. |   |   |
 |  Return the age of a human in Venus years. |   |   |
 |  Return the age of a human in Mars years. |   |   |

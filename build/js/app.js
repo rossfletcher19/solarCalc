@@ -2,24 +2,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Birthdate = exports.Birthdate = function Birthdate(bday) {
-  _classCallCheck(this, Birthdate);
-
-  this.bday = bday;
-};
-
-;
-
-},{}],2:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -27,33 +10,40 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var User = exports.User = function () {
-  function User(age) {
-    _classCallCheck(this, User);
+    function User(age, birthdate) {
+        _classCallCheck(this, User);
 
-    this.age = age;
-  }
-
-  _createClass(User, [{
-    key: "ageInSeconds",
-    value: function ageInSeconds(age) {
-      // debugger;
-      var YR_IN_SECS = 31556952;
-      var ageInSec = this.age * YR_IN_SECS;
-      return ageInSec;
+        this.age = age;
+        this.birthdate = birthdate;
     }
-  }]);
 
-  return User;
+    _createClass(User, [{
+        key: "ageInSeconds",
+        value: function ageInSeconds(age) {
+            // debugger;
+            var YR_IN_SECS = 31556952;
+            var ageInSec = this.age * YR_IN_SECS;
+            return ageInSec;
+        }
+        // debugger;
+
+    }, {
+        key: "accurateAge",
+        value: function accurateAge(birthdate) {
+            var now = Date.now();
+            console.log(now);
+        }
+    }]);
+
+    return User;
 }();
 
 ;
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 "use strict";
 
-var _birthdate = require("./../js/birthdate.js");
-
-var _main = require("./../js/main.js");
+var _user = require("./../js/user.js");
 
 $(document).ready(function () {
   $("#bdayForm").submit(function (event) {
@@ -65,22 +55,6 @@ $(document).ready(function () {
     var milliseconds = date.getTime();
     console.log(milliseconds);
     document.getElementById("milliseconds").innerHTML = milliseconds;
-  });
-});
-
-$(document).ready(function () {
-  $("#ageCalcForm").submit(function (event) {
-    event.preventDefault();
-    // debugger;
-    var age = $('#userAge').val();
-    var userInstance = new _main.User(age);
-    var ageInSec = userInstance.ageInSeconds();
-    $("#output").append(ageInSec);
-
-    $('#ageCalcForm').empty();
-    $('#nameOutput').hide();
-    $('.ageConversions').show();
-    $('.birthdateEntry').show();
   });
 });
 
@@ -97,4 +71,20 @@ $(document).ready(function () {
   $('#time').text(moment());
 });
 
-},{"./../js/birthdate.js":1,"./../js/main.js":2}]},{},[3]);
+$(document).ready(function () {
+  $("#ageCalcForm").submit(function (event) {
+    event.preventDefault();
+    // debugger;
+    var age = $('#userAge').val();
+    var userInstance = new _user.User(age);
+    var ageInSec = userInstance.ageInSeconds();
+    $("#output").append(ageInSec);
+
+    $('#ageCalcForm').empty();
+    $('#nameOutput').hide();
+    $('.ageConversions').show();
+    $('.birthdateEntry').show();
+  });
+});
+
+},{"./../js/user.js":1}]},{},[2]);

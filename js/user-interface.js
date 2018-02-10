@@ -1,4 +1,4 @@
-import { User } from './../js/main.js';
+import { User } from './../js/user.js';
 
 
 $(document).ready(function() {
