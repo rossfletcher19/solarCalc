@@ -5,6 +5,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Birthdate = exports.Birthdate = function Birthdate(bday) {
+  _classCallCheck(this, Birthdate);
+
+  this.bday = bday;
+};
+
+;
+
+},{}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31,10 +48,25 @@ var User = exports.User = function () {
 
 ;
 
-},{}],2:[function(require,module,exports){
-'use strict';
+},{}],3:[function(require,module,exports){
+"use strict";
 
-var _main = require('./../js/main.js');
+var _birthdate = require("./../js/birthdate.js");
+
+var _main = require("./../js/main.js");
+
+$(document).ready(function () {
+  $("#bdayForm").submit(function (event) {
+    event.preventDefault();
+
+    // debugger;
+    var x = document.getElementById("bday").value;
+    var date = new Date(x);
+    var milliseconds = date.getTime();
+    console.log(milliseconds);
+    document.getElementById("milliseconds").innerHTML = milliseconds;
+  });
+});
 
 $(document).ready(function () {
   $("#ageCalcForm").submit(function (event) {
@@ -48,6 +80,7 @@ $(document).ready(function () {
     $('#ageCalcForm').empty();
     $('#nameOutput').hide();
     $('.ageConversions').show();
+    $('.birthdateEntry').show();
   });
 });
 
@@ -56,7 +89,7 @@ $(document).ready(function () {
     event.preventDefault();
     var name = $('#name').val();
     $('#signup').hide();
-    $('#nameOutput').prepend('<p>Thank you, ' + name + ' , now enter your age to see it in different solar years!</p>');
+    $('#nameOutput').prepend('<p>Thank you, ' + name + ' , now enter your age to see it in seconds!</p>');
   });
 });
 
@@ -64,4 +97,4 @@ $(document).ready(function () {
   $('#time').text(moment());
 });
 
-},{"./../js/main.js":1}]},{},[2]);
+},{"./../js/birthdate.js":1,"./../js/main.js":2}]},{},[3]);

@@ -21,20 +21,31 @@
         </form>
         <ul id="nameOutput"></ul>
         <form id="ageCalcForm">
-          <label for="userAge">Age:</label>
+          <label for="userAge"></label>
           <input id="userAge" type="number" value="34">
           <button type="submit" class="btn btn-primary">Submit!</button>
         </form>
       </div>
-
       <div class="ageConversions">
         <h5>Your age in seconds is:</h5>
         <ul id="output"></ul>
-
-        <h3>Your age has been converted on:</h3>
-        <h4 id="time"></h4>
+        <!-- <h3>Your age has been converted on:</h3>
+        <h4 id="time"></h4> -->
       </div>
-
+      <div class="birthdateEntry">
+        <h5>I now need your birthdate, please select it from the field below:</h5>
+        <form id="bdayForm">
+          <input id="bday" type="date" name="bday"  value="1986-01-16">
+          <button type="submit" class="btn btn-primary">Try it</button>
+          <p id="milliseconds"></p>
+        </form>
+      </div>
     </div>
+    <!-- <script>
+      function myFunction() {
+        var x = document.getElementById("bday").value;
+        document.getElementById("demo").innerHTML = x;
+      }
+    </script> -->
   </body>
 </html>

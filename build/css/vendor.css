@@ -6759,3 +6759,7 @@ button.close {
 .ageConversions {
   display: none;
 }
+
+.birthdateEntry {
+  display: none;
+}

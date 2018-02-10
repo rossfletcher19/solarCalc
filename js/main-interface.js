@@ -13,6 +13,7 @@ $(document).ready(function() {
     $('#ageCalcForm').empty();
     $('#nameOutput').hide();
     $('.ageConversions').show();
+    $('.birthdateEntry').show();
 
 
   });
