@@ -17,26 +17,44 @@ export class User {
     let t_millis = d.getTime();
     let ageInMilli = t_millis - sinceEpochToBdayInMilli;
     let ageInYears = ageInMilli/31536000000;
-    return ageInYears;
+    return ageInYears.toFixed(2);
     }
 
     planetAge(age, planet) {
       if (this.planet === "Mercury") {
         let planetYrs = this.age / .24;
-        return parseInt(planetYrs);
+        return planetYrs.toFixed(2);
       } else if (this.planet === "Venus") {
         let planetYrs = this.age / .62;
-        return parseInt(planetYrs);
+        return planetYrs.toFixed(2);
       } else if (this.planet === "Mars") {
         let planetYrs = this.age / 1.88;
-        return parseInt(planetYrs);
+        return planetYrs.toFixed(2);
       } else if (this.planet === "Jupiter") {
         let planetYrs = this.age / 11.86;
-        return parseInt(planetYrs);
+        return planetYrs.toFixed(2);
       } else {
         console.log("end of if");
       }
+    }
 
+    lifeLeftOnPlanets(age, planet) {
+      const avgLifeYrs = 79;
+      if (this.planet === "Mercury") {
+        let lifeLeftOnPlanet = (avgLifeYrs / .24) - (this.age / .24);
+        return lifeLeftOnPlanet.toFixed(2);
+      } else if (this.planet === "Venus") {
+        let lifeLeftOnPlanet = (avgLifeYrs / .62) - (this.age / .62);
+        return lifeLeftOnPlanet.toFixed(2);
+      } else if (this.planet === "Mars") {
+        let lifeLeftOnPlanet = (avgLifeYrs / 1.88) - (this.age / 1.88);
+        return lifeLeftOnPlanet.toFixed(2);
+      } else if (this.planet === "Jupiter") {
+        let lifeLeftOnPlanet = (avgLifeYrs / 11.86) - (this.age / 11.86);
+        return lifeLeftOnPlanet.toFixed(2);
+      } else {
+
+      }
     }
 
 

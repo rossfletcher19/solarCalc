@@ -18,14 +18,20 @@ describe('User', function() {
   });
 
   it('will take a users birthdate and return them an accurate age', function () {
-    let ageInMilli = instanceOfUser.accurateAge();
-    let parsedAgeInYears = parseInt(ageInMilli);
-    expect(parsedAgeInYears).toEqual(32);
+    let ageInYears = instanceOfUser.accurateAge();
+    expect(ageInYears).toEqual('32.10');
   });
 
   it('will take a users age and return their age on a different planet', function () {
     let planetYrs = instanceOfUser.planetAge();
-    expect(planetYrs).toEqual(3);
+    expect(planetYrs).toEqual('3.29');
+  });
+
+  it('will take a users age and return their life left on the planet', function () {
+    let lifeLeftOnPlanet = instanceOfUser.lifeLeftOnPlanets();
+    expect(lifeLeftOnPlanet).toEqual('3.37')
+
+
   });
 
 });
