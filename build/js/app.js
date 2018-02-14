@@ -20,18 +20,19 @@ var User = exports.User = function () {
     _createClass(User, [{
         key: "ageInSeconds",
         value: function ageInSeconds(age) {
-            // debugger;
             var YR_IN_SECS = 31556952;
             var ageInSec = this.age * YR_IN_SECS;
             return ageInSec;
         }
-        // debugger;
-
     }, {
         key: "accurateAge",
         value: function accurateAge(birthdate) {
-            var now = Date.now();
-            console.log(now);
+            var sinceEpochToBdayInMilli = Date.parse(this.birthdate);
+            var d = new Date();
+            var t_millis = d.getTime();
+            var ageInMilli = t_millis - sinceEpochToBdayInMilli;
+            var ageInYears = ageInMilli / 31536000000;
+            return ageInYears;
         }
     }]);
 

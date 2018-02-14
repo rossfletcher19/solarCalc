@@ -4,7 +4,8 @@ var instanceOfUser;
 
 beforeEach(function() {
 
-  instanceOfUser = new User(39, '16 Jan 1986');
+  instanceOfUser = new User(39, '16 Jan 1986', "Jupiter");
+
 
 })
 
@@ -18,12 +19,13 @@ describe('User', function() {
 
   it('will take a users birthdate and return them an accurate age', function () {
     let ageInMilli = instanceOfUser.accurateAge();
-    let parsedAgeInMilli = parseInt(ageInMilli);
-    expect(parsedAgeInMilli).toEqual(32)
-    // console.log(ageInMilli);
-
+    let parsedAgeInYears = parseInt(ageInMilli);
+    expect(parsedAgeInYears).toEqual(32);
   });
 
-
+  it('will take a users age and return their age on a different planet', function () {
+    let planetYrs = instanceOfUser.planetAge();
+    expect(planetYrs).toEqual(3);
+  });
 
 });
