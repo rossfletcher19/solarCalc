@@ -22,17 +22,17 @@ export class User {
 
     planetAge(age, planet) {
       if (this.planet === "Mercury") {
-        let planetYrs = this.age / .24;
-        return planetYrs.toFixed(2);
+        let planetYrs = (this.age / .24).toFixed(2);
+        return planetYrs;
       } else if (this.planet === "Venus") {
-        let planetYrs = this.age / .62;
-        return planetYrs.toFixed(2);
+        let planetYrs = (this.age / .62).toFixed(2);
+        return planetYrs;
       } else if (this.planet === "Mars") {
-        let planetYrs = this.age / 1.88;
-        return planetYrs.toFixed(2);
+        let planetYrs = (this.age / 1.88).toFixed(2);
+        return planetYrs;
       } else if (this.planet === "Jupiter") {
-        let planetYrs = this.age / 11.86;
-        return planetYrs.toFixed(2);
+        let planetYrs = (this.age / 11.86).toFixed(2);
+        return planetYrs;
       } else {
         console.log("end of if");
       }
