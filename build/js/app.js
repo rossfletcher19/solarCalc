@@ -23,7 +23,6 @@ var User = exports.User = function () {
     value: function ageInSeconds(age) {
       var YR_IN_SECS = 31556952;
       var ageInSec = this.age * YR_IN_SECS;
-      // return ageInSec;
       return ageInSec.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     } // regex uses 2 lookahead assertions: a positive one to look for any point in the string that has a multiple of 3 digits in a row after it, and a negative assertion to make sure that point only has exactly a multiple of 3 digits. The replacement expression puts a comma there
 
@@ -95,51 +94,51 @@ var User = exports.User = function () {
 
 var _user = require('./../js/user.js');
 
-$(document).ready(function () {
-  $('#signup').submit(function (event) {
-    event.preventDefault();
-    var name = $('#name').val();
-    $('#signup').hide();
-    $('#nameOutput').prepend('<p>Thank you, ' + name + ' , now enter your age to see it in seconds!</p>');
-  });
-});
+// $(document).ready(function () {
+//   $('#signup').submit(function (event) {
+//     event.preventDefault();
+//     // var name = $('#name').val();
+//     // $('#signup').hide();
+//     // $('#nameOutput').prepend('<p>Thank you, ' + name + ' , now enter your age to see it in seconds!</p>');
+//   });
+// });
 
 $(document).ready(function () {
   $('#time').text(moment());
 });
 
-$(document).ready(function () {
-  $("#ageCalcForm").submit(function (event) {
-    event.preventDefault();
-    // debugger;
-    var age = $('#userAge').val();
-    var userInstance = new _user.User(age);
-    var ageInSec = userInstance.ageInSeconds();
-    console.log(ageInSec);
-    $("#output").append(ageInSec);
-
-    $('#ageCalcForm').empty();
-    $('#nameOutput').hide();
-    $('.ageConversions').show();
-    $('.birthdateEntry').show();
-  });
-});
+// $(document).ready(function() {
+//   $("#ageCalcForm").submit(function(event){
+//     event.preventDefault();
+//     // debugger;
+//     let age = $('#userAge').val();
+//     let userInstance = new User(age);
+//     let ageInSec = userInstance.ageInSeconds();
+//     console.log(ageInSec);
+//     $("#output").append(ageInSec);
+//
+//     $('#ageCalcForm').empty();
+//     $('#nameOutput').hide();
+//     $('.ageConversions').show();
+//     $('.birthdateEntry').show();
+//
+//   });
+// });
 
 $(document).ready(function () {
   $("#bdayForm").submit(function (event) {
     event.preventDefault();
     // debugger;
-
+    var age = $('#userAge').val();
     var birthdate = $('#bday').val();
-    var userInstance = new _user.User(age, birthdate);
+    var planet = $("input:radio[name=planet]:checked").val();
+    console.log(birthdate);
+    console.log(planet);
+    var userInstance = new _user.User(age, birthdate, planet);
+    console.log(userInstance);
     var accurateAge = userInstance.accurateAge();
-
-    $("#output").append(ageInSec);
-
-    $('#ageCalcForm').empty();
-    $('#nameOutput').hide();
-    $('.ageConversions').show();
-    $('.birthdateEntry').show();
+    userInstance.age = accurateAge;
+    console.log(accurateAge);
   });
 });
 

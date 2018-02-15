@@ -12,31 +12,48 @@
       <div class="jumbotron">
         <h1>Solar Calculator</h1>
       </div>
-      <div class="panel">
-        <form id="signup">
-          <h3>Enter your name!</h3>
-          <label for="name">Enter your name:</label>
-          <input id="name" type="text" value="Ross">
-          <button type="submit" class="btn btn-primary">Submit!</button>
-        </form>
-        <ul id="nameOutput"></ul>
+      <!-- <div class="panel">
         <form id="ageCalcForm">
           <label for="userAge"></label>
           <input id="userAge" type="number" value="34">
           <button type="submit" class="btn btn-primary">Submit!</button>
         </form>
-      </div>
-      <div class="ageConversions">
-        <h5>Your age in seconds is:</h5>
-        <ul id="output"></ul>
-        <!-- <h3>Your age has been converted on:</h3>
-        <h4 id="time"></h4> -->
-      </div>
-      <div class="birthdateEntry">
-        <h5>I now need your birthdate, please select it from the field below:</h5>
+      </div> -->
+
+      <div class="formEntry">
+        <h5>I need your age and I need your birthdate, please enter them in the fields below:</h5>
+        <br>
         <form id="bdayForm">
+          <label for="userAge"></label>
+          <input id="userAge" type="number" value="34">
           <input id="bday" type="date" name="bday"  value="1986-01-16">
-          <button type="submit" class="btn btn-primary">Try it</button>
+          <hr>
+          <h3>And what planet do you want to see your age conversions on??</h3>
+            <div class="radio">
+              <label>
+                <input type="radio" name="planet" value="Mercury" checked>
+                Mercury
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="planet" value="Venus">
+                Venus
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="planet" value="Mars">
+                Mars
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="planet" value="Jupiter">
+                Jupiter
+              </label>
+            </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
           <p id="milliseconds"></p>
         </form>
       </div>

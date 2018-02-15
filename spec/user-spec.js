@@ -34,7 +34,7 @@ describe('User', function() {
   });
 
   it('will provide a message if the user is pass the avg. life expectancy', function () {
-    var instanceOfUser2 = new User(81, '16 Jan 1936', "Mars");
+    let instanceOfUser2 = new User(81, '16 Jan 1936', "Mars");
     let ageInYears = instanceOfUser2.accurateAge();
     let lifeMessage = instanceOfUser2.surpassedLifeExpectancy(ageInYears);
     expect(lifeMessage).toEqual("Wow you've surpassed the avg. life expectancy! You must be doing something right. Keep it up!!!");
