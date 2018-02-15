@@ -20,6 +20,18 @@ export class User {
     return ageInYears.toFixed(2);
     }
 
+    surpassedLifeExpectancy(ageInYears) {
+      if(ageInYears > 79) {
+        return "Wow you've surpassed the avg. life expectancy! You must be doing something right. Keep it up!!!"
+      } else if (ageInYears <= 79) {
+        return "Life is too short to sit around not learning something challenging like Javascript, Java, and Android... So get to it!!"
+      } else {
+
+      }
+    }
+
+
+
     planetAge(age, planet) {
       if (this.planet === "Mercury") {
         let planetYrs = (this.age / .24).toFixed(2);
@@ -56,7 +68,5 @@ export class User {
 
       }
     }
-
-
 
 };
