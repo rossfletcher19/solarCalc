@@ -8,8 +8,9 @@ export class User {
     ageInSeconds(age) {
     const YR_IN_SECS = 31556952;
     let ageInSec = this.age * YR_IN_SECS;
-    return ageInSec;
-    }
+    // return ageInSec;
+    return ageInSec.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  } // regex uses 2 lookahead assertions: a positive one to look for any point in the string that has a multiple of 3 digits in a row after it, and a negative assertion to make sure that point only has exactly a multiple of 3 digits. The replacement expression puts a comma there
 
     accurateAge(birthdate) {
     let sinceEpochToBdayInMilli = Date.parse(this.birthdate);
@@ -26,7 +27,6 @@ export class User {
       } else if (ageInYears <= 79) {
         return "Life is too short to sit around not learning something challenging like Javascript, Java, and Android... So get to it!!"
       } else {
-
       }
     }
 

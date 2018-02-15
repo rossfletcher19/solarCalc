@@ -2,7 +2,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -10,54 +10,90 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var User = exports.User = function () {
-    function User(age, birthdate) {
-        _classCallCheck(this, User);
+  function User(age, birthdate, planet) {
+    _classCallCheck(this, User);
 
-        this.age = age;
-        this.birthdate = birthdate;
+    this.age = age;
+    this.birthdate = birthdate;
+    this.planet = planet;
+  }
+
+  _createClass(User, [{
+    key: "ageInSeconds",
+    value: function ageInSeconds(age) {
+      var YR_IN_SECS = 31556952;
+      var ageInSec = this.age * YR_IN_SECS;
+      // return ageInSec;
+      return ageInSec.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    } // regex uses 2 lookahead assertions: a positive one to look for any point in the string that has a multiple of 3 digits in a row after it, and a negative assertion to make sure that point only has exactly a multiple of 3 digits. The replacement expression puts a comma there
+
+  }, {
+    key: "accurateAge",
+    value: function accurateAge(birthdate) {
+      var sinceEpochToBdayInMilli = Date.parse(this.birthdate);
+      var d = new Date();
+      var t_millis = d.getTime();
+      var ageInMilli = t_millis - sinceEpochToBdayInMilli;
+      var ageInYears = ageInMilli / 31536000000;
+      return ageInYears.toFixed(2);
     }
+  }, {
+    key: "surpassedLifeExpectancy",
+    value: function surpassedLifeExpectancy(ageInYears) {
+      if (ageInYears > 79) {
+        return "Wow you've surpassed the avg. life expectancy! You must be doing something right. Keep it up!!!";
+      } else if (ageInYears <= 79) {
+        return "Life is too short to sit around not learning something challenging like Javascript, Java, and Android... So get to it!!";
+      } else {}
+    }
+  }, {
+    key: "planetAge",
+    value: function planetAge(age, planet) {
+      if (this.planet === "Mercury") {
+        var planetYrs = (this.age / .24).toFixed(2);
+        return planetYrs;
+      } else if (this.planet === "Venus") {
+        var _planetYrs = (this.age / .62).toFixed(2);
+        return _planetYrs;
+      } else if (this.planet === "Mars") {
+        var _planetYrs2 = (this.age / 1.88).toFixed(2);
+        return _planetYrs2;
+      } else if (this.planet === "Jupiter") {
+        var _planetYrs3 = (this.age / 11.86).toFixed(2);
+        return _planetYrs3;
+      } else {
+        console.log("end of if");
+      }
+    }
+  }, {
+    key: "lifeLeftOnPlanets",
+    value: function lifeLeftOnPlanets(age, planet) {
+      var avgLifeYrs = 79;
+      if (this.planet === "Mercury") {
+        var lifeLeftOnPlanet = avgLifeYrs / .24 - this.age / .24;
+        return lifeLeftOnPlanet.toFixed(2);
+      } else if (this.planet === "Venus") {
+        var _lifeLeftOnPlanet = avgLifeYrs / .62 - this.age / .62;
+        return _lifeLeftOnPlanet.toFixed(2);
+      } else if (this.planet === "Mars") {
+        var _lifeLeftOnPlanet2 = avgLifeYrs / 1.88 - this.age / 1.88;
+        return _lifeLeftOnPlanet2.toFixed(2);
+      } else if (this.planet === "Jupiter") {
+        var _lifeLeftOnPlanet3 = avgLifeYrs / 11.86 - this.age / 11.86;
+        return _lifeLeftOnPlanet3.toFixed(2);
+      } else {}
+    }
+  }]);
 
-    _createClass(User, [{
-        key: "ageInSeconds",
-        value: function ageInSeconds(age) {
-            var YR_IN_SECS = 31556952;
-            var ageInSec = this.age * YR_IN_SECS;
-            return ageInSec;
-        }
-    }, {
-        key: "accurateAge",
-        value: function accurateAge(birthdate) {
-            var sinceEpochToBdayInMilli = Date.parse(this.birthdate);
-            var d = new Date();
-            var t_millis = d.getTime();
-            var ageInMilli = t_millis - sinceEpochToBdayInMilli;
-            var ageInYears = ageInMilli / 31536000000;
-            return ageInYears;
-        }
-    }]);
-
-    return User;
+  return User;
 }();
 
 ;
 
 },{}],2:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var _user = require("./../js/user.js");
-
-$(document).ready(function () {
-  $("#bdayForm").submit(function (event) {
-    event.preventDefault();
-
-    // debugger;
-    var x = document.getElementById("bday").value;
-    var date = new Date(x);
-    var milliseconds = date.getTime();
-    console.log(milliseconds);
-    document.getElementById("milliseconds").innerHTML = milliseconds;
-  });
-});
+var _user = require('./../js/user.js');
 
 $(document).ready(function () {
   $('#signup').submit(function (event) {
@@ -79,6 +115,25 @@ $(document).ready(function () {
     var age = $('#userAge').val();
     var userInstance = new _user.User(age);
     var ageInSec = userInstance.ageInSeconds();
+    console.log(ageInSec);
+    $("#output").append(ageInSec);
+
+    $('#ageCalcForm').empty();
+    $('#nameOutput').hide();
+    $('.ageConversions').show();
+    $('.birthdateEntry').show();
+  });
+});
+
+$(document).ready(function () {
+  $("#bdayForm").submit(function (event) {
+    event.preventDefault();
+    // debugger;
+
+    var birthdate = $('#bday').val();
+    var userInstance = new _user.User(age, birthdate);
+    var accurateAge = userInstance.accurateAge();
+
     $("#output").append(ageInSec);
 
     $('#ageCalcForm').empty();

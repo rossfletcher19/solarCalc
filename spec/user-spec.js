@@ -15,7 +15,7 @@ describe('User', function() {
 
   it('will test to see if a users age is converted into seconds', function() {
       let ageInSec = instanceOfUser.ageInSeconds();
-      expect(ageInSec).toEqual(1009822464);
+      expect(ageInSec).toEqual('1,009,822,464');
   });
 
   it('will take a users birthdate and return them an accurate age', function () {
