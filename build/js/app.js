@@ -38,16 +38,16 @@ var User = exports.User = function () {
     }
   }, {
     key: "surpassedLifeExpectancy",
-    value: function surpassedLifeExpectancy(ageInYears) {
-      if (ageInYears > 79) {
+    value: function surpassedLifeExpectancy(age) {
+      if (age > 79) {
         return "Wow you've surpassed the avg. life expectancy! You must be doing something right. Keep it up!!!";
-      } else if (ageInYears <= 79) {
+      } else if (age <= 79) {
         return "Life is too short to sit around not learning something challenging like Javascript, Java, and Android... So get to it!!";
       } else {}
     }
   }, {
     key: "planetAge",
-    value: function planetAge(age, planet) {
+    value: function planetAge(planet) {
       if (this.planet === "Mercury") {
         var planetYrs = (this.age / .24).toFixed(2);
         return planetYrs;
@@ -132,12 +132,15 @@ $(document).ready(function () {
     var age = $('#userAge').val();
     var birthdate = $('#bday').val();
     var planet = $("input:radio[name=planet]:checked").val();
-    console.log(birthdate);
-    console.log(planet);
     var userInstance = new _user.User(age, birthdate, planet);
-    console.log(userInstance);
+
     var accurateAge = userInstance.accurateAge();
     userInstance.age = accurateAge;
+    var longLife = userInstance.surpassedLifeExpectancy(age);
+    var planetAge = userInstance.planetAge();
+    console.log(longLife);
+    console.log(planetAge);
+    console.log(userInstance);
     console.log(accurateAge);
   });
 });

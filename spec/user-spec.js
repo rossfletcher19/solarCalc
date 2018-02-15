@@ -3,13 +3,8 @@ import { User } from './../js/user.js';
 var instanceOfUser;
 
 beforeEach(function() {
-
-  instanceOfUser = new User(32, '16 Jan 1986', "Mars");
-
-
-
+  instanceOfUser = new User(32, "1986-01-16", "Mars");
 })
-
 
 describe('User', function() {
 
@@ -19,8 +14,8 @@ describe('User', function() {
   });
 
   it('will take a users birthdate and return them an accurate age', function () {
-    let ageInYears = instanceOfUser.accurateAge();
-    expect(ageInYears).toEqual('32.10');
+    let age = instanceOfUser.accurateAge();
+    expect(age).toEqual('32.10');
   });
 
   it('will take a users age and return their age on a different planet', function () {
@@ -35,8 +30,8 @@ describe('User', function() {
 
   it('will provide a message if the user is pass the avg. life expectancy', function () {
     let instanceOfUser2 = new User(81, '16 Jan 1936', "Mars");
-    let ageInYears = instanceOfUser2.accurateAge();
-    let lifeMessage = instanceOfUser2.surpassedLifeExpectancy(ageInYears);
+    let age = instanceOfUser2.accurateAge();
+    let lifeMessage = instanceOfUser2.surpassedLifeExpectancy(age);
     expect(lifeMessage).toEqual("Wow you've surpassed the avg. life expectancy! You must be doing something right. Keep it up!!!");
   });
 

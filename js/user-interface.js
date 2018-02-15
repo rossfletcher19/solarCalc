@@ -26,12 +26,15 @@ $(document).ready(function() {
     let age = $('#userAge').val();
     let birthdate = $('#bday').val();
     let planet = $("input:radio[name=planet]:checked").val();
-    console.log(birthdate);
-    console.log(planet);
     let userInstance = new User(age, birthdate, planet);
-    console.log(userInstance);
+
     let accurateAge = userInstance.accurateAge();
     userInstance.age = accurateAge;
+    let longLife = userInstance.surpassedLifeExpectancy(age);
+    let planetAge = userInstance.planetAge();
+    console.log(longLife);
+    console.log(planetAge);
+    console.log(userInstance);
     console.log(accurateAge);
 
 
