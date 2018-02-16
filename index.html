@@ -12,57 +12,66 @@
       <div class="jumbotron">
         <h1>Solar Calculator</h1>
       </div>
-      <!-- <div class="panel">
-        <form id="ageCalcForm">
-          <label for="userAge"></label>
-          <input id="userAge" type="number" value="34">
-          <button type="submit" class="btn btn-primary">Submit!</button>
-        </form>
-      </div> -->
 
-      <div class="formEntry">
         <h5>I need your age and I need your birthdate, please enter them in the fields below:</h5>
         <br>
         <form id="bdayForm">
           <label for="userAge"></label>
-          <input id="userAge" type="number" value="34">
-          <input id="bday" type="date" name="bday"  value="1986-01-16">
+          <input id="userAge" type="number" value="">
+          <input id="bday" type="date" name="bday"  value="">
           <hr>
-          <h3>And what planet do you want to see your age conversions on??</h3>
+          <h3>And what planet do you want to see your age conversion on??</h3>
             <div class="radio">
               <label>
-                <input type="radio" name="planet" value="Mercury" checked>
+                <input type="radio" name="planets" value="Mercury" checked>
                 Mercury
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="planet" value="Venus">
+                <input type="radio" name="planets" value="Venus">
                 Venus
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="planet" value="Mars">
+                <input type="radio" name="planets" value="Mars">
                 Mars
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="planet" value="Jupiter">
+                <input type="radio" name="planets" value="Jupiter">
                 Jupiter
               </label>
             </div>
           <button type="submit" class="btn btn-primary">Submit</button>
-          <p id="milliseconds"></p>
+
         </form>
-      </div>
+        <hr>
+
+        <div class="lifeAndAgeCalcs">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 id="longLife"></h4>
+            </div>
+            <div class="panel-body">
+              <p> Your age in seconds: <span id="seconds"></span></p>
+              <p> Based on your birthdate an accurate age has been calculated for you. You are around <span id="accurateAge"></span> Earth years old according to our calculations.</p>
+
+              <p>Your age on <span class="planet"></span> is <span id="planetAge"></span> in <span class="planet"></span> years.</p>
+
+              <p>Based on an avg. life span in the US, you'd have <span id="timeLeftOnPlanet"></span> years left until avg. life expectancy on <span class="planet"></span>!</p>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-secondary" onclick="myFunction()">Reload page</button>
+
     </div>
-    <!-- <script>
-      function myFunction() {
-        var x = document.getElementById("bday").value;
-        document.getElementById("demo").innerHTML = x;
-      }
-    </script> -->
+    <script>
+        function myFunction() {
+            location.reload();
+        }
+    </script>
   </body>
 </html>

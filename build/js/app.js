@@ -49,16 +49,16 @@ var User = exports.User = function () {
     key: "planetAge",
     value: function planetAge(planet) {
       if (this.planet === "Mercury") {
-        var planetYrs = (this.age / .24).toFixed(2);
+        var planetYrs = (this.age / '.24').toFixed(2);
         return planetYrs;
       } else if (this.planet === "Venus") {
-        var _planetYrs = (this.age / .62).toFixed(2);
+        var _planetYrs = (this.age / '.62').toFixed(2);
         return _planetYrs;
       } else if (this.planet === "Mars") {
-        var _planetYrs2 = (this.age / 1.88).toFixed(2);
+        var _planetYrs2 = (this.age / '1.88').toFixed(2);
         return _planetYrs2;
       } else if (this.planet === "Jupiter") {
-        var _planetYrs3 = (this.age / 11.86).toFixed(2);
+        var _planetYrs3 = (this.age / '11.86').toFixed(2);
         return _planetYrs3;
       } else {
         console.log("end of if");
@@ -69,16 +69,16 @@ var User = exports.User = function () {
     value: function lifeLeftOnPlanets(age, planet) {
       var avgLifeYrs = 79;
       if (this.planet === "Mercury") {
-        var lifeLeftOnPlanet = avgLifeYrs / .24 - this.age / .24;
+        var lifeLeftOnPlanet = avgLifeYrs / '.24' - this.age / '.24';
         return lifeLeftOnPlanet.toFixed(2);
       } else if (this.planet === "Venus") {
-        var _lifeLeftOnPlanet = avgLifeYrs / .62 - this.age / .62;
+        var _lifeLeftOnPlanet = avgLifeYrs / '.62' - this.age / '.62';
         return _lifeLeftOnPlanet.toFixed(2);
       } else if (this.planet === "Mars") {
-        var _lifeLeftOnPlanet2 = avgLifeYrs / 1.88 - this.age / 1.88;
+        var _lifeLeftOnPlanet2 = avgLifeYrs / '1.88' - this.age / '1.88';
         return _lifeLeftOnPlanet2.toFixed(2);
       } else if (this.planet === "Jupiter") {
-        var _lifeLeftOnPlanet3 = avgLifeYrs / 11.86 - this.age / 11.86;
+        var _lifeLeftOnPlanet3 = avgLifeYrs / '11.86' - this.age / '11.86';
         return _lifeLeftOnPlanet3.toFixed(2);
       } else {}
     }
@@ -86,8 +86,6 @@ var User = exports.User = function () {
 
   return User;
 }();
-
-;
 
 },{}],2:[function(require,module,exports){
 'use strict';
@@ -104,45 +102,44 @@ var _user = require('./../js/user.js');
 // });
 
 $(document).ready(function () {
-  $('#time').text(moment());
+    $('#time').text(moment());
 });
 
-// $(document).ready(function() {
-//   $("#ageCalcForm").submit(function(event){
-//     event.preventDefault();
-//     // debugger;
-//     let age = $('#userAge').val();
-//     let userInstance = new User(age);
-//     let ageInSec = userInstance.ageInSeconds();
-//     console.log(ageInSec);
-//     $("#output").append(ageInSec);
-//
-//     $('#ageCalcForm').empty();
-//     $('#nameOutput').hide();
-//     $('.ageConversions').show();
-//     $('.birthdateEntry').show();
-//
-//   });
-// });
-
 $(document).ready(function () {
-  $("#bdayForm").submit(function (event) {
-    event.preventDefault();
-    // debugger;
-    var age = $('#userAge').val();
-    var birthdate = $('#bday').val();
-    var planet = $("input:radio[name=planet]:checked").val();
-    var userInstance = new _user.User(age, birthdate, planet);
+    $("#bdayForm").submit(function (event) {
+        event.preventDefault();
+        // debugger;
+        var age = $('#userAge').val();
+        var birthdate = $('#bday').val();
+        var planet = $("input:radio[name=planets]:checked").val();
+        var userInstance = new _user.User(age, birthdate, planet);
 
-    var accurateAge = userInstance.accurateAge();
-    userInstance.age = accurateAge;
-    var longLife = userInstance.surpassedLifeExpectancy(age);
-    var planetAge = userInstance.planetAge();
-    console.log(longLife);
-    console.log(planetAge);
-    console.log(userInstance);
-    console.log(accurateAge);
-  });
+        var accurateAge = userInstance.accurateAge();
+        userInstance.age = accurateAge;
+        var longLife = userInstance.surpassedLifeExpectancy(age);
+        var planetAge = userInstance.planetAge();
+        var ageInSec = userInstance.ageInSeconds(accurateAge);
+        var lifeLeft = userInstance.lifeLeftOnPlanets();
+
+        $('#longLife').empty();
+        $('#longLife').append(longLife);
+
+        $('#seconds').empty();
+        $('#seconds').append(ageInSec);
+
+        $('#accurateAge').empty();
+        $('#accurateAge').append(accurateAge);
+
+        $('.planet').empty();
+        $('.planet').append(planet);
+
+        $('#planetAge').empty();
+        $('#planetAge').append(planetAge);
+
+        $('#timeLeftOnPlanet').empty();
+        $('#timeLeftOnPlanet').append(lifeLeft);
+        $('#lifeAndAgeCalcs').show();
+    });
 });
 
 },{"./../js/user.js":1}]},{},[2]);

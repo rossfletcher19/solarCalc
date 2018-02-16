@@ -22,9 +22,9 @@ export class User {
 
     surpassedLifeExpectancy(age) {
         if(age > 79) {
-          return "Wow you've surpassed the avg. life expectancy! You must be doing something right. Keep it up!!!"
+          return "Wow you've surpassed the avg. life expectancy! You must be doing something right. Keep it up!!!";
         } else if (age <= 79) {
-          return "Life is too short to sit around not learning something challenging like Javascript, Java, and Android... So get to it!!"
+          return "Life is too short to sit around not learning something challenging like Javascript, Java, and Android... So get to it!!";
         } else {
       }
     }
@@ -33,16 +33,16 @@ export class User {
 
     planetAge(planet) {
       if (this.planet === "Mercury") {
-        let planetYrs = (this.age / .24).toFixed(2);
+        let planetYrs = (this.age / '.24').toFixed(2);
         return planetYrs;
       } else if (this.planet === "Venus") {
-        let planetYrs = (this.age / .62).toFixed(2);
+        let planetYrs = (this.age / '.62').toFixed(2);
         return planetYrs;
       } else if (this.planet === "Mars") {
-        let planetYrs = (this.age / 1.88).toFixed(2);
+        let planetYrs = (this.age / '1.88').toFixed(2);
         return planetYrs;
       } else if (this.planet === "Jupiter") {
-        let planetYrs = (this.age / 11.86).toFixed(2);
+        let planetYrs = (this.age / '11.86').toFixed(2);
         return planetYrs;
       } else {
         console.log("end of if");
@@ -52,20 +52,20 @@ export class User {
     lifeLeftOnPlanets(age, planet) {
       const avgLifeYrs = 79;
       if (this.planet === "Mercury") {
-        let lifeLeftOnPlanet = (avgLifeYrs / .24) - (this.age / .24);
+        let lifeLeftOnPlanet = (avgLifeYrs / '.24') - (this.age / '.24');
         return lifeLeftOnPlanet.toFixed(2);
       } else if (this.planet === "Venus") {
-        let lifeLeftOnPlanet = (avgLifeYrs / .62) - (this.age / .62);
+        let lifeLeftOnPlanet = (avgLifeYrs / '.62') - (this.age / '.62');
         return lifeLeftOnPlanet.toFixed(2);
       } else if (this.planet === "Mars") {
-        let lifeLeftOnPlanet = (avgLifeYrs / 1.88) - (this.age / 1.88);
+        let lifeLeftOnPlanet = (avgLifeYrs / '1.88') - (this.age / '1.88');
         return lifeLeftOnPlanet.toFixed(2);
       } else if (this.planet === "Jupiter") {
-        let lifeLeftOnPlanet = (avgLifeYrs / 11.86) - (this.age / 11.86);
+        let lifeLeftOnPlanet = (avgLifeYrs / '11.86') - (this.age / '11.86');
         return lifeLeftOnPlanet.toFixed(2);
       } else {
 
       }
     }
 
-};
+}

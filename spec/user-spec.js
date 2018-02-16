@@ -15,7 +15,7 @@ describe('User', function() {
 
   it('will take a users birthdate and return them an accurate age', function () {
     let age = instanceOfUser.accurateAge();
-    expect(age).toEqual('32.10');
+    expect(age).toEqual('32.11');
   });
 
   it('will take a users age and return their age on a different planet', function () {
