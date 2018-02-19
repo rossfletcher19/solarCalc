@@ -17,12 +17,12 @@
 |---|---|---|
 |  Take a person’s age in years and convert it into seconds. |  34 | 1,072,936,368  |
 |  Take two dates and determine the difference, in seconds, between the two. | Jan 12, 2018 & Jan 20, 1986 |   |
-|  Return the age of a human in Mercury years. |   |   |
-|  Return the age of a human in Venus years. |   |   |
-|  Return the age of a human in Mars years. |   |   |
-|  Return the age of a human in Jupiter years. |   |   |
-|  Determine how many years a user has left to live on each planet… |   |   |
-|  If a user has already surpassed the average life expectancy, application should account for (and test) this possible outcome as well. |   |   |
+|  Return the age of a human in Mercury years. | 32  | 133.83  |
+|  Return the age of a human in Venus years. | 32  | 51.81  |
+|  Return the age of a human in Mars years. | 32  | 17.09  |
+|  Return the age of a human in Jupiter years. | 32  | 2.71  |
+|  Determine how many years a user has left to live on each planet… | 32  | Jupiter: 3.95 years  |
+|  If a user has already surpassed the average life expectancy, application should account for (and test) this possible outcome as well. | 01-16-1937  | "Wow you've surpassed the avg. life expectancy! You must be doing something right. Keep it up!!!"  |
 |   |   |   |
 
 ## Integration
@@ -39,6 +39,9 @@
   * Refactor
   * Delete unused
   * Make README awesome
+
+## Further Building Out/Refactoring
+  * Refactor ageInSeconds function to work off birthdate and not entered age.
 
 ## Setup/Installation Requirements
 
