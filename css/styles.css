@@ -5,3 +5,16 @@
 #results {
   display: none;
 }
+
+body {
+  background-image: url('/img/space.jpg');
+  color: #c5cfe0;
+}
+
+.jumbotron {
+  background-image: url('/img/banner.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 50px;
+  height: 100px;
+}
