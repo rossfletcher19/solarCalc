@@ -42,6 +42,7 @@
 
 ## Further Building Out/Refactoring
   * Refactor ageInSeconds function to work off birthdate and not entered age.
+  * Show age on all planets instead of having user select one and get result for only one.
 
 ## Setup/Installation Requirements
 
