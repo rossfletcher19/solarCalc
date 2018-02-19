@@ -1,16 +1,3 @@
-// $(document).ready(function () {
-//   $('#signup').submit(function (event) {
-//     event.preventDefault();
-//     // var name = $('#name').val();
-//     // $('#signup').hide();
-//     // $('#nameOutput').prepend('<p>Thank you, ' + name + ' , now enter your age to see it in seconds!</p>');
-//   });
-// });
-
-$(document).ready(function(){
-  $('#time').text(moment());
-});
-
 import { User } from './../js/user.js';
 
 $(document).ready(function() {
@@ -24,9 +11,9 @@ $(document).ready(function() {
 
     let accurateAge = userInstance.accurateAge();
     userInstance.age = accurateAge;
-    let longLife = userInstance.surpassedLifeExpectancy(age);
+    let longLife = userInstance.surpassedLifeExpectancy(accurateAge);
     let planetAge = userInstance.planetAge();
-    let ageInSec = userInstance.ageInSeconds(accurateAge);
+    let ageInSec = userInstance.ageInSeconds(age);
     let lifeLeft = userInstance.lifeLeftOnPlanets();
 
 
@@ -48,7 +35,7 @@ $(document).ready(function() {
 
     $('#timeLeftOnPlanet').empty();
     $('#timeLeftOnPlanet').append(lifeLeft);
-    $('#lifeAndAgeCalcs').show();
+    $('#results').show();
 
   });
 });

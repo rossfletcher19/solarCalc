@@ -22,7 +22,7 @@ var User = exports.User = function () {
     key: "ageInSeconds",
     value: function ageInSeconds(age) {
       var YR_IN_SECS = 31556952;
-      var ageInSec = this.age * YR_IN_SECS;
+      var ageInSec = age * YR_IN_SECS;
       return ageInSec.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     } // regex uses 2 lookahead assertions: a positive one to look for any point in the string that has a multiple of 3 digits in a row after it, and a negative assertion to make sure that point only has exactly a multiple of 3 digits. The replacement expression puts a comma there
 
@@ -92,19 +92,6 @@ var User = exports.User = function () {
 
 var _user = require('./../js/user.js');
 
-// $(document).ready(function () {
-//   $('#signup').submit(function (event) {
-//     event.preventDefault();
-//     // var name = $('#name').val();
-//     // $('#signup').hide();
-//     // $('#nameOutput').prepend('<p>Thank you, ' + name + ' , now enter your age to see it in seconds!</p>');
-//   });
-// });
-
-$(document).ready(function () {
-    $('#time').text(moment());
-});
-
 $(document).ready(function () {
     $("#bdayForm").submit(function (event) {
         event.preventDefault();
@@ -116,9 +103,9 @@ $(document).ready(function () {
 
         var accurateAge = userInstance.accurateAge();
         userInstance.age = accurateAge;
-        var longLife = userInstance.surpassedLifeExpectancy(age);
+        var longLife = userInstance.surpassedLifeExpectancy(accurateAge);
         var planetAge = userInstance.planetAge();
-        var ageInSec = userInstance.ageInSeconds(accurateAge);
+        var ageInSec = userInstance.ageInSeconds(age);
         var lifeLeft = userInstance.lifeLeftOnPlanets();
 
         $('#longLife').empty();
@@ -138,7 +125,7 @@ $(document).ready(function () {
 
         $('#timeLeftOnPlanet').empty();
         $('#timeLeftOnPlanet').append(lifeLeft);
-        $('#lifeAndAgeCalcs').show();
+        $('#results').show();
     });
 });
 

@@ -11,9 +11,9 @@ $(document).ready(function() {
 
     let accurateAge = userInstance.accurateAge();
     userInstance.age = accurateAge;
-    let longLife = userInstance.surpassedLifeExpectancy(age);
+    let longLife = userInstance.surpassedLifeExpectancy(accurateAge);
     let planetAge = userInstance.planetAge();
-    let ageInSec = userInstance.ageInSeconds(accurateAge);
+    let ageInSec = userInstance.ageInSeconds(age);
     let lifeLeft = userInstance.lifeLeftOnPlanets();
 
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
     $('#timeLeftOnPlanet').empty();
     $('#timeLeftOnPlanet').append(lifeLeft);
-    $('#lifeAndAgeCalcs').show();
+    $('#results').show();
 
   });
 });
